@@ -80,6 +80,11 @@ class ClienteController extends Controller
       return response()->json([
         "proccess" => "login",
         "data" => $login
-      ]);
+      ], 200);
+
+      return response()->json([
+        "proccess" => "login",
+        "data" = "Error"
+      ], 500);
     }
 }
