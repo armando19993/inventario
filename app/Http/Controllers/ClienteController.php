@@ -74,7 +74,8 @@ class ClienteController extends Controller
 
     public function login(Request $request)
     {
-      $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario, $request->clave]);
+      // $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
+      $profession = DB::table('clientes')->where('correo', '=', $request->usuario)->first();
       //
       //
       // return response()->json([
