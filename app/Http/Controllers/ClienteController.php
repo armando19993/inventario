@@ -78,19 +78,7 @@ class ClienteController extends Controller
       // $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
        // $profession = DB::table('clientes')->where('correo', '=', "")->first();
 
-       $users = DB::select('select * from clientes where active = ?', [$request->usuario]);
-
-
-
-      // return response()->json([
-      //   "proccess" => "login",
-      //   "data" => $login
-      // ], 200);
-      //
-      // return response()->json([
-      //   "proccess" => "login",
-      //   "data" = "Error"
-      // ], 500);
+       $users = DB::select('select * from clientes where correo = ?', [$request->usuario]);
 
       return response()->json([
           "data" => $users,
