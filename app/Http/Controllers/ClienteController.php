@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -74,8 +75,8 @@ class ClienteController extends Controller
 
     public function login(Request $request)
     {
-       $login = DB::select('select * from clientes where correo = ?', [$request->usuario]);
-
+      $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
+      // $profession = DB::table('clientes')->where('correo', '=', $request->usuario)->first();
       //
       //
       // return response()->json([
@@ -89,7 +90,7 @@ class ClienteController extends Controller
       // ], 500);
 
       return response()->json([
-          "data" => $login,
+          "data" => $request->usuario,
           "status" => 200,
           "message" => "Enviando exitoso"
       ], 200);
