@@ -79,7 +79,7 @@ class ClienteController extends Controller
 
       return response()->json([
         "proccess" => "login",
-        "data" => $login;
+        "data" => $login
       ]);
     }
 }
