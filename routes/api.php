@@ -10,7 +10,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/login', [ClienteController::class, 'login']);
+Route::post('/login', [ClienteController::class, 'login']);
 
 
 /*Clientes*/
