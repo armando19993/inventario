@@ -88,7 +88,7 @@ class ClienteController extends Controller
       // ], 500);
 
       return response()->json([
-          "data" => $request,
+          "data" => $request->nombre,
           "status" => 200,
           "message" => "Enviando exitoso"
       ], 200);
