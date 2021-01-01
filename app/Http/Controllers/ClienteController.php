@@ -78,10 +78,10 @@ class ClienteController extends Controller
       // $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
        // $profession = DB::table('clientes')->where('correo', '=', "")->first();
 
-       $users = DB::select('select count(*) from clientes where correo = ? AND clave = ?', [$request->usuario, $request->clave]);
+       $users = DB::select('select count(*) as Conteo from clientes where correo = ? AND clave = ?', [$request->usuario, $request->clave]);
 
       return response()->json([
-          "data" => $users,
+          "data" => $users->Conteo,
           "status" => 200,
           "message" => "Enviando exitoso"
       ], 200);
