@@ -10,7 +10,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-/*Route::get()*/
+Route::get('/login', [ClienteController::class, 'login']);
 
 
 /*Clientes*/
@@ -19,5 +19,3 @@ Route::get('/clientes/{cliente}', [ClienteController::class, 'show']);
 Route::post('/clientes/registrar', [ClienteController::class, 'store']);
 Route::post('/clientes/actualizar/{cliente}', [ClienteController::class, 'update']);
 Route::post('/clientes/eliminar/{cliente}', [ClienteController::class, 'destroy']);
-
-

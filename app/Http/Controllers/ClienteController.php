@@ -10,7 +10,7 @@ class ClienteController extends Controller
 
     public function index()
     {
-        
+
         $clientes = Cliente::all();
 
         return response()->json([
@@ -70,5 +70,16 @@ class ClienteController extends Controller
             "status" => 200,
             "message" => "Cliente Eliminado con exito"
         ], 200);
+    }
+
+    public function login(Request $request)
+    {
+      $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario, $request->clave])->count();
+
+
+      return response()->json([
+        "proccess" => "login",
+        "data" => $login;
+      ]);
     }
 }
