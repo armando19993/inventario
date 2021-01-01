@@ -75,10 +75,13 @@ class ClienteController extends Controller
 
     public function login(Request $request)
     {
-      $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
-      // $profession = DB::table('clientes')->where('correo', '=', $request->usuario)->first();
-      //
-      //
+      // $login = DB::select('select * from clientes where correo = ? AND clave = ?', [$request->usuario], [$request->clave]);
+       // $profession = DB::table('clientes')->where('correo', '=', "")->first();
+
+       $users = DB::select('select * from clientes where active = ?', [$request->usuario]);
+
+
+
       // return response()->json([
       //   "proccess" => "login",
       //   "data" => $login
@@ -90,7 +93,7 @@ class ClienteController extends Controller
       // ], 500);
 
       return response()->json([
-          "data" => $request->usuario,
+          "data" => $users,
           "status" => 200,
           "message" => "Enviando exitoso"
       ], 200);
